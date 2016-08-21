@@ -55,8 +55,6 @@ endmacro()
 
 message(STATUS "C++ Requests CMake Options")
 message(STATUS "=======================================================")
-cpr_option(USE_SYSTEM_CURL
-    "If ON, this project will look in the system paths for an installed curl library" OFF)
 cpr_option(BUILD_CPR_TESTS "Set to ON to build cpr tests." ON)
 cpr_option(INSECURE_CURL "Set to ON to disable verification of SSL certificates." OFF)
 cpr_option(GENERATE_COVERAGE "Set to ON to generate coverage reports." OFF)
@@ -72,6 +70,6 @@ endif()
 
 add_subdirectory(opt)
 add_subdirectory(cpr)
-if(BUILD_CPR_TESTS) 
+if(BUILD_CPR_TESTS)
     add_subdirectory(test)
 endif()

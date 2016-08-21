@@ -38,23 +38,11 @@ endif()
 
 # Curl configuration
 
-if(USE_SYSTEM_CURL)
-    find_package(CURL)
-endif()
-if(NOT USE_SYSTEM_CURL OR NOT CURL_FOUND)
-    message(STATUS "Not using system Curl, using built-in curl project instead.")
-    option(BUILD_CURL_TESTS "Set to ON to build cURL tests." OFF)
-    add_subdirectory(curl)
-    set(CURL_FOUND TRUE)
-    set(CURL_LIBRARIES libcurl)
-    set(CURL_INCLUDE_DIRS
-        ${CURL_SOURCE_DIR}/include
-        ${CURL_BINARY_DIR}/include/curl)
-        
-    # Group under the "external" project folder in IDEs such as Visual Studio.
-    set_property(TARGET curl PROPERTY FOLDER "external")
-    set_property(TARGET libcurl PROPERTY FOLDER "external")
-endif()
+#find_package(CURL)
+set(CURL_INCLUDE_DIRS "/xldlib/include")
+set(CURL_LIBRARIES "/xldlib/lib/libcurl.a")
+set(CURL_FOUND TRUE)
+set(CURL_VERSION_STRING "7.50.1")
 
 set_cache_variable(CURL_FOUND "Set if libcurl is found or built")
 set_cache_variable(CURL_LIBRARIES "Location of libcurl")
@@ -81,7 +69,7 @@ if(BUILD_CPR_TESTS)
         set(GTEST_MAIN_LIBRARIES gtest_main)
         set(GTEST_BOTH_LIBRARIES gtest gtest_main)
         set(GTEST_INCLUDE_DIRS ${gtest_SOURCE_DIR}/include)
-        
+
         # Group under the "tests/gtest" project folder in IDEs such as Visual Studio.
     set_property(TARGET gtest PROPERTY FOLDER "tests/gtest")
     set_property(TARGET gtest_main PROPERTY FOLDER "tests/gtest")
@@ -107,7 +95,7 @@ if(BUILD_CPR_TESTS)
     set_cache_variable(MONGOOSE_FOUND "Set if libmongoose was found or built")
     set_cache_variable(MONGOOSE_LIBRARIES "Location of libmongoose")
     set_cache_variable(MONGOOSE_INCLUDE_DIRS "Location of mongoose include files")
-    
+
     # Group under the "external" project folder in IDEs such as Visual Studio.
     set_property(TARGET mongoose PROPERTY FOLDER "external")
 endif()
