@@ -40,7 +40,7 @@ endif()
 
 #find_package(CURL)
 set(CURL_INCLUDE_DIRS "/xldlib/include")
-set(CURL_LIBRARIES "/xldlib/lib/libcurl.a" "/xldlib/lib/libz.a" "/xldlib/lib/libssl.a" "/xldlib/lib/libcrypto.a")
+set(CURL_LIBRARIES "/xldlib/lib/libcurl.a" "/xldlib/lib/libz.a" "/xldlib/lib/libssl.a" "/xldlib/lib/libcrypto.a" "ldl")
 set(CURL_FOUND TRUE)
 set(CURL_VERSION_STRING "7.50.1")
 
