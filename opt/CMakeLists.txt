@@ -47,10 +47,7 @@ if (UNIX)
 endif (UNIX)
 
 if (MSYS)
-    set(CURL_INCLUDE_DIRS "/xldlib/include")
-    set(CURL_LIBRARIES "/xldlib/lib/libcurl.x64.lib" "/xldlib/lib/zlib.x64.lib" "/xldlib/lib/openssl.x64.lib" "/xldlib/lib/libssh2.x64.lib")
-    set(CURL_FOUND TRUE)
-    set(CURL_VERSION_STRING "7.40.0")
+    find_package(CURL)
 endif (MSYS)
 
 set_cache_variable(CURL_FOUND "Set if libcurl is found or built")
