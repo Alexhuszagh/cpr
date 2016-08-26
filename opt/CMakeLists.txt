@@ -38,13 +38,19 @@ endif()
 
 # Curl configuration
 
-#find_package(CURL)
 if (UNIX)
     set(CURL_INCLUDE_DIRS "/xldlib/include")
     set(CURL_LIBRARIES "/xldlib/lib/libcurl.a" "/xldlib/lib/libz.a" "/xldlib/lib/libssl.a" "/xldlib/lib/libcrypto.a" "dl")
     set(CURL_FOUND TRUE)
     set(CURL_VERSION_STRING "7.50.1")
 endif (UNIX)
+
+if (MSVC)
+    set(CURL_INCLUDE_DIRS "C:\xldlib\include")
+    set(CURL_LIBRARIES "C:\xldlib\lib\libcurl.lib" "C:\xldlib\lib\zlib.lib" "C:\xldlib\lib\ssleay32.lib" "C:\xldlib\lib\libeay32.lib")
+    set(CURL_FOUND TRUE)
+    set(CURL_VERSION_STRING "7.50.1")
+endif (MSVC)
 
 if (MSYS)
     find_package(CURL)
